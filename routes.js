@@ -7,7 +7,7 @@ var services = require('./services');
 router.post('/reset', function(req, res) {
     services.resetData();
     res.status(200);
-    res.json('OK');
+    res.send("OK");
 });
 
 router.route('/balance')
@@ -33,7 +33,7 @@ router.route('/event')
         var tempSend = 0;
         var result = services.updateAccount(req.body)
             if(result != null){
-                tempStatus = 200;
+                tempStatus = 201;
                 tempSend = result;
             }
 

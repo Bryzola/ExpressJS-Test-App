@@ -26,12 +26,12 @@ var updateAccount = function(request) {
                 destinationData.balance += request.amount;
             }
             
-            return {"Destination": destinationData};
+            return {"destination": destinationData};
         case 'withdraw':
             var originData = data.find(x => x.id == request.origin);
             if(originData) {
                 originData.balance -= request.amount;
-                return {"Origin": originData};
+                return {"origin": originData};
             }
             return null;
         case 'transfer':
@@ -49,7 +49,7 @@ var updateAccount = function(request) {
                 }
                 
                 originData.balance -= request.amount;
-                return [{"Origin": originData}, {"Destination": destinationData}];
+                return [{"origin": originData}, {"destination": destinationData}];
             }
             return null;
         default:
