@@ -49,7 +49,8 @@ var updateAccount = function(request) {
                 }
                 
                 originData.balance -= request.amount;
-                return [{"origin": originData}, {"destination": destinationData}];
+                
+                return {"origin": originData, "destination": destinationData};
             }
             return null;
         default:
